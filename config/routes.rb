@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     sessions: 'user/database_authentication/sessions'
   }
   devise_for :registrations, class_name: "User::Registration", controllers: {
-    confirmations: 'user/registration/confirmations'
+    confirmations: 'user/registrations'
   }
   devise_scope :registration do
-    post "/registrations", to: "user/registration/confirmations#finish",  as: "finish_user_registration"
+    post "/registration/finish", to: "user/registrations#finish",  as: "finish_user_registration"
   end
   devise_for :users
   resources :posts

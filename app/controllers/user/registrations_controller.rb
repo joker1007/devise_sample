@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User::Registration::ConfirmationsController < Devise::ConfirmationsController
+class User::RegistrationsController < Devise::ConfirmationsController
   # GET /resource/confirmation/new
   # def new
   #   super
@@ -22,8 +22,6 @@ class User::Registration::ConfirmationsController < Devise::ConfirmationsControl
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
     super do
-      @user = User.new
-      @user_database_authentication = User::DatabaseAuthentication.new
       return render :show
     end
   end

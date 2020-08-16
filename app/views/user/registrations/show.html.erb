@@ -1,8 +1,8 @@
 <h2>Registration Form</h2>
 
 <%= form_tag(finish_user_registration_path) do %>
-  <%= render "user/registration/shared/error_messages", resource: @user %>
-  <%= render "user/registration/shared/error_messages", resource: @user_database_authentication %>
+  <%= render "user/registrations/shared/error_messages", resource: @user %>
+  <%= render "user/registrations/shared/error_messages", resource: @user_database_authentication %>
 
   <div class="field">
     <p>
