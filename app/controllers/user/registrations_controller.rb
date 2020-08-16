@@ -8,6 +8,12 @@ class User::RegistrationsController < Devise::ConfirmationsController
 
   # POST /resource/confirmation
   def create
+    registered = User::DatabaseAuthentication.where(email: params[:registration][:email]).exists?
+    if registered
+      flash[:error] = "Given email address is already registered."
+      return render :new
+    end
+
     user_registration = User::Registration.find_or_initialize_by(unconfirmed_email: params[:registration][:email])
     if user_registration.save
       super do
